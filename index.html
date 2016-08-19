@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="app">
 <head>
 	<meta charset="UTF-8">
 	<title>angular todo</title>
 	<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body ng-controller="MainController">
 
-	<section class="demo" ng-init="todos=[]">
+	<section class="demo">
 		<input type="text" class="todo-input" placeholder="new todo" ng-model="newTodo">
-		<button ng-click="todos.push(newTodo); newTodo = ''; ">add</button>
+		<button ng-click="addTodo(newTodo)">add</button>
+		<h3 ng-if="!todos.length">You have no tasks today!</h3>
 		<ul>
-			<li ng-repeat="todo in todos" ng-click="todos.splice($index, 1)">
-				<h3>{{ todo }}</h3>
+			<li ng-repeat="todo in todos" ng-click="done($index)">
+				<h3>{{ todo.title }}</h3>
 			</li>
 		</ul>
 	</section>
@@ -21,6 +22,7 @@
 		<pre>{{ todos | json }}</pre>
 	</section>
 	<script src="angular.min.js"></script>
+		<script src="app.js"></script>
 
 </body>
 </html>
