@@ -9,9 +9,9 @@
 
 	<section class="demo" ng-init="todos=[]">
 		<input type="text" class="todo-input" placeholder="new todo" ng-model="newTodo">
-		<button ng-click=" todos.push(newTodo); newTodo = ''; ">add</button>
+		<button ng-click="todos.push(newTodo); newTodo = ''; ">add</button>
 		<ul>
-			<li ng-repeat="todo in todos">
+			<li ng-repeat="todo in todos" ng-click="todos.splice($index, 1)">
 				<h3>{{ todo }}</h3>
 			</li>
 		</ul>
