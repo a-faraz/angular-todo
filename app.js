@@ -10,4 +10,6 @@ angular.module('app', [])
 	$scope.done = function(index) {
 		$scope.todos.splice(index, 1);
 	}
+
+	
 })
